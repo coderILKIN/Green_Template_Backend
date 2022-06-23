@@ -1,0 +1,234 @@
+﻿@model GreenVM
+@{
+    ViewData["Title"] = "Index";
+}
+
+
+    <main>
+        <section id="main-slider">
+            <div id="carouselExampleCaptions" class="carousel slide" data-bs-ride="carousel">
+                <div class="carousel-indicators">
+                    <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="0" class="active"
+                        aria-current="true" aria-label="Slide 1"></button>
+                    <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="1"
+                        aria-label="Slide 2"></button>
+                    <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="2"
+                        aria-label="Slide 3"></button>
+                </div>
+                 
+                <div class="carousel-inner">
+                    <div class="carousel-item active">
+                         @foreach (Slider slider in Model.Sliders)
+                   {
+                    <div class="bg-color"></div>
+                   
+                    
+                        <img src="~/assets/img/@slider.Image" class="d-block w-100" alt="">
+                        <div class="carousel-caption d-none d-md-block">
+                            <h1>@slider.Title</h1>
+                            <p>@slider.SubTitle</p>
+                            <button>@slider.ButonAbout</button>
+                        </div>
+                   }
+                   </div>
+                   
+                </div>
+                <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleCaptions"
+                    data-bs-slide="prev">
+                    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                    <span class="visually-hidden">Previous</span>
+                </button>
+                
+                <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleCaptions"
+                    data-bs-slide="next">
+                    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                    <span class="visually-hidden">Next</span>
+                </button>
+                
+            </div>
+        </section>
+
+        <section id="main-icon">
+            <div class="container">
+                <div class="row">
+                    @foreach (MainIcon main in Model.MainIcons)
+                   {
+                       <div class="col-12 col-sm-12 col-md-6 col-lg-4">
+                        <div class="icon-box">
+                            <div class="icon">
+                                <i class="@main.Icon"></i>
+                            </div>
+
+                            <div class="icon-about">
+                                <h5>@main.Title</h5>
+                                <p>@main.Subtitle</p>
+                            </div>
+                        </div>
+                    </div>
+                   }
+                </div>
+            </div>
+        </section>
+
+        <section id="About-us">
+            <div class="container">
+                <div class="row">
+                    <div class="about">
+                        <h2>@Model.About.Logo</h2>
+                        <span></span>
+                        <p>@Model.About.LogoAbout</p>
+                    </div>
+
+                    <div class="col-lg-6">
+                        <div class="image-about">
+                            <h3>@Model.About.Title</h3>
+                            <p>@Model.About.SubTitle</p>
+                            <ul>
+                                <li>
+                                    <p>Ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+                                </li>
+                                <li>
+                                    <p>Duis aute irure dolor in reprehenderit in voluptate velit.</p>
+                                </li>
+                                <li>
+                                    <p>Ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in
+                                        reprehenderit in voluptate trideta storacalaperda mastiro dolore eu fugiat nulla
+                                        pariatur.</p>
+                                </li>
+                                <li>
+                                    <p>Ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in
+                                        reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.
+                                        Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia
+                                        deserunt mollit anim id est laborum</p>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="col-lg-6">
+                        <div class="image">
+                            <img src="~/assets/img/@Model.About.Image" alt="">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+
+        <section id="services">
+            <div class="container">
+                <div class="row">
+                    <div class="about">
+                        <h2>@Model.Services.</h2>
+                        <span></span>
+                        <p>Magnam dolores commodi suscipit. Necessitatibus eius consequatur ex aliquid fuga eum quidem.
+                            Sit sint consectetur velit. Quisquam quos quisquam cupiditate. Et nemo qui impedit suscipit
+                            alias ea. Quia fugiat sit in iste officiis commodi quidem hic quas.</p>
+                    </div>
+
+                    @foreach (Service service in Model.Services)
+                   {
+                       <div class="col-lg-4">
+                        <div class="service-box">
+                            <div class="icon">
+                                <i class="@service.Icon"></i>
+                            </div>
+                            <div class="icon-about">
+                                <h4>@service.CardTitle</h4>
+                                <p>@service.CardSubtitle</p>
+                            </div>
+                        </div>
+                    </div>
+                   }
+                </div>
+            </div>
+        </section>
+
+
+        <section id="Contact">
+            <div class="container">
+                <div class="row">
+                    <div class="about">
+                        <h2>CONTACT</h2>
+                        <span></span>
+                        <p>Magnam dolores commodi suscipit. Necessitatibus eius consequatur ex aliquid fuga eum quidem.
+                            Sit sint consectetur velit. Quisquam quos quisquam cupiditate. Et nemo qui impedit suscipit
+                            alias ea. Quia fugiat sit in iste officiis commodi quidem hic quas.</p>
+                    </div>
+
+
+                    <div class="col-lg-6">
+                        <span class="line"></span>
+                        <div class="contact-left">
+                            <ul>
+                                @foreach (var item in Model.Contacts)
+                               {
+                                   <li><a href=""><i class="@item.Icon"></i> <span>@item.ContactName</span>
+                                        <p>@item.contact</p>
+                                    </a></li>
+                               }
+                            </ul>
+                            <div class="mapouter">
+                                <div class="gmap_canvas"><iframe width="560" height="300" id="gmap_canvas"
+                                        src="https://maps.google.com/maps?q=2880%20Broadway,%20New%20York&t=&z=13&ie=UTF8&iwloc=&output=embed"
+                                        frameborder="0" scrolling="no" marginheight="0" marginwidth="0"></iframe><a
+                                        href="https://123movies-to.org"></a><br>
+                                    <style>
+                                        .mapouter {
+                                            position: relative;
+                                            text-align: right;
+                                            height: 500px;
+                                            width: 600px;
+                                        }
+                                    </style>
+                                    <style>
+                                        .gmap_canvas {
+                                            overflow: hidden;
+                                            background: none !important;
+                                            height: 500px;
+                                            width: 600px;
+                                        }
+                                    </style>
+                                </div>
+                            </div>
+                        </div>
+                        <span class="line"></span>
+                    </div>
+                    <div class="col-lg-6">
+                        <span class="line"></span>
+                        <form action="">
+                            <div class="row">
+                                <div class="col-lg-6">
+                                    <label for="">Your Name</label>
+                                    <div class="input-group input-group-sm mb-3 w-100">
+                                        <input type="text" class="form-control p-2 " aria-label="Sizing example input"
+                                            aria-describedby="inputGroup-sizing-sm">
+                                    </div>
+                                </div>
+                                <div class="col-lg-6">
+                                    <label for="">Your Email</label>
+                                    <div class="input-group input-group-sm mb-3 w-100">
+                                        <input type="text" class="form-control  p-2" aria-label="Sizing example input"
+                                            aria-describedby="inputGroup-sizing-sm">
+                                    </div>
+                                </div>
+                                <div class="col-lg-12">
+                                    <label for="">Subject</label>
+                                    <div class="input-group input-group-sm mb-3 w-100 ">
+                                        <input type="text" class="form-control p-2 " aria-label="Sizing example input"
+                                            aria-describedby="inputGroup-sizing-sm">
+                                    </div>
+                                </div>
+                                <div class="col-lg-12">
+                                   <label for="">Message</label><br>
+                                   <textarea name="" id="" cols="84" rows="10"></textarea>     
+                                </div>
+                                <div class="col-lg-12"><button style="width: 150px;height: 40px;background-color: #5cb874;border: none;border-radius: 4px;color: white;">Send Message</button></div>
+                            </div>
+                        </form>
+                        <span class="line"></span>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
